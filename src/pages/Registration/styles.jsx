@@ -60,7 +60,7 @@ export const SubmitBtn = styled.button`
   text-align: center;
   color: ${c.white};
   :hover {
-    opacity: 0.7;
+    opacity: 0.9;
   }
   :active {
     scale: 0.9;

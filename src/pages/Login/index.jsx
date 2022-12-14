@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "../../services";
 
@@ -7,13 +7,16 @@ import * as S from "./styles";
 
 function Login() {
   const { register, handleSubmit } = useForm();
+  const [userData, setUserData] = useState(null);
+
   const onSubmit = (data) => {
     console.log(data.email);
     api
       .post("/auth/login", data)
-      .then((res) => console.log(res))
+      .then((res) => setUserData(res.data))
       .catch((erro) => console.log(erro));
   };
+  console.log(userData);
 
   return (
     <S.Container>
