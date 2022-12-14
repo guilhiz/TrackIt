@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { api } from "../../services";
+import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/Logo.png";
 import * as S from "./styles";
 
-function Login() {
+function Login({setUserData}) {
   const { register, handleSubmit } = useForm();
-  const [userData, setUserData] = useState(null);
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     console.log(data.email);
     api
       .post("/auth/login", data)
-      .then((res) => setUserData(res.data))
+      .then((res) => {
+        setUserData(res.data)
+        navigate("/hoje")
+      })
       .catch((erro) => console.log(erro));
   };
-  console.log(userData);
 
   return (
     <S.Container>
