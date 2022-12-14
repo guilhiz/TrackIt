@@ -1,22 +1,22 @@
 import React from "react";
 import Header from "../../components/Header";
 
-// import { * as S } from './styles';
+import  * as S  from './styles';
 
 function Today({userData}) {
   return (
-    <div>
+    <S.Container>
       <Header userData={userData} />
-      <div>
-        <h1>oiii</h1>
-        <p></p>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </div>
+      <S.Content>
+        <h1>Segunda, 17/05</h1>
+        <p>Nenhum hábito concluído ainda</p>
+        <S.TodayList>
+          <S.TodayItem>Ler 1 capítulo do S.TodayItemvro</S.TodayItem>
+          <S.TodayItem>Ler 2 capítulo do S.TodayItemvro</S.TodayItem>
+          <S.TodayItem>Ler 3 capítulo do livro</S.TodayItem>
+        </S.TodayList>
+      </S.Content>
+    </S.Container>
   );
 }
 
