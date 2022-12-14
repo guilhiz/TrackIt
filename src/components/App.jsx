@@ -1,15 +1,17 @@
-import 'reset-css';
-import GlobalStyle from '../styles/GlobalStyle';
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../pages/Home";
 
+import "reset-css";
+import GlobalStyle from "../styles/GlobalStyle";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <GlobalStyle />
-     <div>
-     <h1>OIIIII</h1>
-     </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
