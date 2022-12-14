@@ -1,11 +1,20 @@
 import React from "react";
-import { Container } from "./styles";
+import  * as S  from "./styles";
+import logo from "../../assets/Logo.png"
+
 
 function home() {
+
   return (
-    <Container>
-      <h1>oi</h1>
-    </Container>
+    <S.Container>
+      <img src={logo} alt="" />
+      <form action="">
+        <input type="email" />
+        <input type="password" />
+        <button type="submit">Entrar</button>
+      </form>
+      <a>Não tem uma conta? Cadastre-se!</a>
+    </S.Container>
   );
 }
 
