@@ -39,6 +39,12 @@ export const Input = styled.input`
   background: #ffffff;
   border: 1px solid ${c.placeholder};
   border-radius: 5px;
+  padding-left: 11px;
+  ::placeholder {
+    font-size: 19.976px;
+    line-height: 25px;
+    color: ${c.placeholder};
+  }
 `;
 
 export const SubmitBtn = styled.button`
