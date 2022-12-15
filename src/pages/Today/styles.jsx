@@ -3,6 +3,7 @@ import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
+  height: 100vh;
   padding: 80px 17px;
   background-color: ${c.background};
   margin: 0 auto;
@@ -12,6 +13,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   h1 {
     font-size: 23px;
     line-height: 29px;
@@ -32,6 +34,7 @@ export const TodayList = styled.ul`
   margin-top: 28px;
 `;
 export const TodayItem = styled.li`
+
   width: 100%;
   height: 94px;
   background: ${c.white};

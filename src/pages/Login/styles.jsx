@@ -68,10 +68,10 @@ export const SubmitBtn = styled.button`
 `;
 
 export const StyledLink = styled(Link)`
+  text-decoration-line: underline;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  text-decoration-line: underline;
   color: ${c.button};
   margin-top: 25px;
   cursor: pointer;
