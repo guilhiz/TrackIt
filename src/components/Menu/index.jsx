@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css";
 import * as S from "./styles";
 
 function Menu() {
-  const percentage = 50;
+  const percentage = 80;
   return (
     <S.Container>
       <S.Content>

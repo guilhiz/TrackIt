@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { api } from "../../services";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services";
+import {AuthContext} from "../../context";
 
 import logo from "../../assets/Logo.png";
 import * as S from "./styles";
 
-function Login({ setUserData }) {
+function Login() {
   const { register, handleSubmit } = useForm();
+  const { setUserData } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onSubmit = (data) => {

@@ -3,8 +3,8 @@ import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
-  height: 100vh;
-  padding: 80px 17px;
+  height: 100%;
+  padding: 90px 17px 100px;
   background-color: ${c.background};
   margin: 0 auto;
 `;

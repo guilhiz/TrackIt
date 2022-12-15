@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import trackIt from "../../assets/TrackIt.png"
+import { AuthContext } from '../../context';
 import  * as S  from './styles';
 
-function Header({userData}) {
+function Header() {
+  const {userData} = useContext(AuthContext)
   return (
     <S.Container>
       <S.Content>
