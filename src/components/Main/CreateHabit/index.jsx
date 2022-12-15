@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { api } from "../../services";
-import { AuthContext } from "../../context";
+import { api } from "../../../services";
+import { AuthContext } from "../../../context";
 import * as S from "./styles";
 
 function CreateHabit() {
@@ -21,10 +21,7 @@ function CreateHabit() {
   const handleSubmit = () => {
     const token = userData.token;
     const body = { name, days };
-    api
-      .post("/habits", body, { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => console.log(res.data))
-      .catch((erro) => console.log(erro));
+    api.post("/habits", body, { headers: { Authorization: `Bearer ${token}` } }).catch((erro) => console.log(erro));
   };
 
   return (

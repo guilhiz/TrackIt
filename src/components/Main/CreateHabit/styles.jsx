@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors as c } from "../../constants";
+import { colors as c } from "../../../constants";
 
 export const Card = styled.div`
   width: 100%;
@@ -44,14 +44,14 @@ export const ContainerBtn = styled.div`
 export const DayBtn = styled.button`
   width: 30px;
   height: 30px;
-  background: ${(props) => props.switch ? "#CFCFCF" : "#FFFFFF"};
+  background: ${(props) => (props.switch ? "#CFCFCF" : "#FFFFFF")};
   border: 1px solid ${c.border};
   border-radius: 5px;
   cursor: pointer;
 
   font-size: 19.976px;
   line-height: 25px;
-  color: ${(props) => props.switch ? "#FFFFFF" : "#DBDBDB"};;
+  color: ${(props) => (props.switch ? "#FFFFFF" : "#DBDBDB")};
 `;
 
 export const ContainerSaveBtn = styled.div`
