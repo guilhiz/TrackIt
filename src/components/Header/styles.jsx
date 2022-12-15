@@ -16,12 +16,16 @@ export const Content = styled.div`
   justify-content: space-between;
 `;
 
-export const LogoImg = styled.img`
-display: block;
-width: 97px;
-`
+export const Logo = styled.p`
+  font-family: "Playball";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 39px;
+  line-height: 49px;
+  color: #ffffff;
+`;
 export const ProfileImg = styled.img`
-display: block;
-width: 51px;
-border-radius: 50%;
-`
+  display: block;
+  width: 51px;
+  border-radius: 50%;
+`;

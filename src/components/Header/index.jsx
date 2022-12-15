@@ -5,11 +5,11 @@ import  * as S  from './styles';
 
 function Header() {
   const {userData} = useContext(AuthContext)
-  
+
   return (
     <S.Container>
       <S.Content>
-        <S.LogoImg src={trackIt} alt="" />
+        <S.Logo>TrackIt</S.Logo>
         <S.ProfileImg src={userData.image} alt="" />
       </S.Content>
     </S.Container>

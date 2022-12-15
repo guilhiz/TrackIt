@@ -18,9 +18,18 @@ p {
 }
 
 h1 {
-  font-size: 22.976px;
+  font-size: 23px;
   line-height: 29px;
   color: ${c.title};
+}
+
+button {
+  :hover {
+    opacity: 0.7;
+  }
+  :active {
+    scale: 0.9;
+  }
 }
 `;
 
