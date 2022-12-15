@@ -4,6 +4,7 @@ export const colors = {
   text: "#666666",
   white: "#FFFFFF",
   background: "#E5E5E5",
-  placeholder: "#D4D4D4",
+  placeholder: "#DBDBDB",
+  border: "#D5D5D5",
   check: "#8FC549",
 };

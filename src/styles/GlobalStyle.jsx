@@ -24,6 +24,7 @@ h1 {
 }
 
 button {
+  cursor: pointer;
   :hover {
     opacity: 0.7;
   }
