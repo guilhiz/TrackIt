@@ -3,7 +3,7 @@ import { api } from "../../../services";
 import { AuthContext } from "../../../context";
 import * as S from "./styles";
 
-function CreateHabit() {
+function CreateHabit({setRefresh, setSwitchCreate}) {
   const listDays = ["D", "S", "T", "Q", "Q", "S", "S"];
   const { userData } = useContext(AuthContext);
   const [name, setName] = useState("");
@@ -21,7 +21,14 @@ function CreateHabit() {
   const handleSubmit = () => {
     const token = userData.token;
     const body = { name, days };
-    api.post("/habits", body, { headers: { Authorization: `Bearer ${token}` } }).catch((erro) => console.log(erro));
+    api.post("/habits", body, { headers: { Authorization: `Bearer ${token}` } })
+    .then(() => {
+      setName("")
+      setDays([])
+      setRefresh(current => !current)
+      setSwitchCreate(current => !current)
+    })
+    .catch((erro) => console.log(erro));
   };
 
   return (

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 import { colors as c } from "../../constants";
 
 export const Container = styled.header`
@@ -29,3 +30,7 @@ export const ProfileImg = styled.img`
   width: 51px;
   border-radius: 50%;
 `;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`
