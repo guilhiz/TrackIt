@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { colors as c } from "../../constants";
 
 export const Container = styled.footer`
@@ -17,15 +18,18 @@ export const Content = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  p {
-    color: ${c.button};
-    font-size: 18px;
-    line-height: 22px;
-  }
   div {
     width: 80px;
     height: 100%;
     display: block;
     margin-top: -45px;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  font-size: 18px;
+  line-height: 22px;
+  color: ${c.button};
+  cursor: pointer;
+  text-decoration: none;
 `;

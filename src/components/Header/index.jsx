@@ -5,6 +5,7 @@ import  * as S  from './styles';
 
 function Header() {
   const {userData} = useContext(AuthContext)
+  
   return (
     <S.Container>
       <S.Content>

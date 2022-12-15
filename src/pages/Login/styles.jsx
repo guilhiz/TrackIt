@@ -6,10 +6,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 375px;
-  height: 100%;
+  min-width: 375px;
+  max-width: 400px;
+  height: 80vh;
   background-color: ${c.white};
-  margin: 0px auto;
+  margin: 50px auto;
   padding: 68px 36px 0px;
 `;
 
@@ -68,11 +69,11 @@ export const SubmitBtn = styled.button`
 `;
 
 export const StyledLink = styled(Link)`
-  text-decoration-line: underline;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
   color: ${c.button};
   margin-top: 25px;
   cursor: pointer;
+  text-decoration-line: underline;
 `;

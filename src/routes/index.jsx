@@ -16,7 +16,7 @@ export function RouteProvider() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Registration />} />
-          <Route path="/habitos" element={<Login />} />
+          <Route path="/habitos" element={<Today />} />
           <Route path="/hoje" element={<Today />} />
           <Route path="/historico" element={<Login />} />
         </Routes>

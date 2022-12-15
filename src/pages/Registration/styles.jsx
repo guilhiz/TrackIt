@@ -6,10 +6,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 375px;
-  height: 100%;
+  min-width: 375px;
+  max-width: 400px;
+  height: 90vh;
   background-color: ${c.white};
-  margin: 0px auto;
+  margin: 30px auto;
   padding: 68px 36px 0px;
 `;
 
