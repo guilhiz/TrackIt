@@ -10,16 +10,24 @@ import CardToday from "../../components/Main/CardToday";
 function Today() {
   const [todayData, setTodayData] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  const { userData } = useContext(AuthContext);
+  const { userData, setPercentage } = useContext(AuthContext);
   const token = userData.token;
 
   useEffect(() => {
     api
       .get("/habits/today", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => setTodayData(res.data))
+      .then((res) => {
+        setTodayData(res.data)
+        calcPercentage(res.data)
+      })
       .catch((erro) => console.log(erro));
   }, [refresh]);
 
+  const calcPercentage = (data) => {
+    const habitsDone = data.filter(t => t.done)
+    const percentageHabitsCompleted = (habitsDone.length / data.length) * 100
+    setPercentage(percentageHabitsCompleted)
+  }
 
   return (
     <S.Container>
