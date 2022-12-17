@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context";
 import { Link } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -6,7 +7,7 @@ import "react-circular-progressbar/dist/styles.css";
 import * as S from "./styles";
 
 function Menu() {
-  const percentage = 80;
+  const { percentage } = useContext(AuthContext);
   return (
     <S.Container>
       <S.Content>

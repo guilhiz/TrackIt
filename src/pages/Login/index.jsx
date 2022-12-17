@@ -13,7 +13,6 @@ function Login() {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data.email);
     api
       .post("/auth/login", data)
       .then((res) => {

@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Lexend Deca';
   font-style: normal;
   font-weight: 400;
-  background-color: ${c.background};
+  background-color: #E5E5E5;
 }
 *, *:before, *:after {
   box-sizing: inherit;

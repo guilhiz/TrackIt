@@ -3,7 +3,7 @@ import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
-  height: 100%;
+  min-height: 100vh;
   padding: 90px 17px 100px;
   background-color: ${c.background};
   margin: 0 auto;
@@ -30,13 +30,6 @@ export const Content = styled.div`
 export const TodayList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 23px 0px;
+  gap: 10px 0px;
   margin-top: 28px;
-`;
-export const TodayItem = styled.li`
-
-  width: 100%;
-  height: 94px;
-  background: ${c.white};
-  border-radius: 5px;
 `;

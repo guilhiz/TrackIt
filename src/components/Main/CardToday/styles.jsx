@@ -39,7 +39,7 @@ export const CheckBox = styled.button`
   width: 69px;
   height: 69px;
   background: ${(props) => props.switchColor && c.check};
-  background: ${(props) => props.switchColor && "#EBEBEB"};
+  background: ${(props) => !props.switchColor && "#EBEBEB"};
   border-radius: 5px;
   border: none;
 `;

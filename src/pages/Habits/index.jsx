@@ -19,7 +19,7 @@ function Habits() {
     api
       .get("/habits", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => setHabits(res.data))
-      .catch((erro) => console.log(`Ocorreu um erro no request ${erro}`));
+      .catch((erro) => console.log(erro));
   }, [refresh]);
 
   return (

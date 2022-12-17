@@ -9,17 +9,18 @@ import CardToday from "../../components/Main/CardToday";
 
 function Today() {
   const [todayData, setTodayData] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const { userData } = useContext(AuthContext);
+  const token = userData.token;
 
   useEffect(() => {
-    const token = userData.token;
-    console.log(token)
     api
       .get("/habits/today", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => setTodayData(res.data))
       .catch((erro) => console.log(erro));
-  }, []);
-console.log(todayData)
+  }, [refresh]);
+
+
   return (
     <S.Container>
       <Header />
@@ -27,7 +28,7 @@ console.log(todayData)
         <h1>Segunda, 17/05</h1>
         <p>Nenhum hábito concluído ainda</p>
         <S.TodayList>
-         {todayData.length >= 1 && todayData.map((t)=> <CardToday key={t.id} dayData={t}  />)}
+          {todayData.length >= 1 && todayData.map((t) => <CardToday key={t.id} dayData={t} setRefresh={setRefresh} />)}
         </S.TodayList>
       </S.Content>
       <Menu />

@@ -9,7 +9,6 @@ function Registration() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     api.post("/auth/sign-up", data)
     .then(res => console.log(res))
     .catch(erro => console.log(erro))
