@@ -20,12 +20,13 @@ export const Content = styled.div`
     color: ${c.title};
     margin-bottom: 5px;
   }
-  > p {
-    font-size: 18px;
-    line-height: 22px;
-    color: #bababa;
-  }
 `;
+
+export const PercentageText = styled.p`
+  font-size: 18px;
+    line-height: 22px;
+    color: ${(props) => (props.switch ?  c.check : "#bababa")};
+`
 
 export const TodayList = styled.ul`
   display: flex;
