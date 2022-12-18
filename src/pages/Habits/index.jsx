@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { api } from "../../services";
-
+import { AuthContext } from "../../context";
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import CreateHabit from "../../components/Main/CreateHabit";
@@ -13,11 +13,12 @@ function Habits() {
   const [refresh, setRefresh] = useState([]);
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
+  const { userData } = useContext(AuthContext);
+  const token = userData.token;
 
   useEffect(() => {
-
     api
-      .get("/habits")
+      .get("/habits", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => setHabits(res.data))
       .catch((erro) => console.log(erro));
   }, [refresh]);
@@ -30,7 +31,16 @@ function Habits() {
           <h1>Meus hábitos</h1>
           <S.CreateBtn onClick={() => setSwitchCreate((current) => !current)}>+</S.CreateBtn>
         </div>
-        {switchCreate && <CreateHabit name={name} setName={setName} days={days} setDays={setDays} setRefresh={setRefresh} setSwitchCreate={setSwitchCreate} />}
+        {switchCreate && (
+          <CreateHabit
+            name={name}
+            setName={setName}
+            days={days}
+            setDays={setDays}
+            setRefresh={setRefresh}
+            setSwitchCreate={setSwitchCreate}
+          />
+        )}
         {habits.length >= 1 && habits.map((h) => <CardHabit setRefresh={setRefresh} key={h.name} habit={h} />)}
         {habits.length < 1 && (
           <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>

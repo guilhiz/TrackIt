@@ -12,14 +12,15 @@ import "reset-css";
 
 export function RouteProvider() {
   // const { userData } = useContext(AuthContext);
-  const userData = (localStorage.getItem("token"));
-  const logged = userData.token === undefined;
+  // const userData = JSON.parse(localStorage.getItem("token"));
+  // const logged = userData.token === undefined;
+  // element={logged ? <Login /> : <Navigate to="/hoje" replace />}
   return (
     <Router>
       <GlobalStyle />
       <AuthProvider>
         <Routes>
-          <Route path="/" element={logged ? <Login /> : <Navigate to="/hoje" replace />} />
+          <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Registration />} />
           <Route path="/habitos" element={<Habits />} />
           <Route path="/hoje" element={<Today />} />
