@@ -50,6 +50,9 @@ export const Input = styled.input`
 `;
 
 export const SubmitBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 45px;
   width: 100%;
   background-color: ${c.button};

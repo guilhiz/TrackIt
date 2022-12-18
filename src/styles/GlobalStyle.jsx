@@ -31,6 +31,21 @@ button {
   :active {
     scale: 0.9;
   }
+  :disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    :hover {
+      opacity: 0.6;
+    }
+    :active {
+      scale: 1;
+    }
+  }
+}
+input {
+  :disabled {
+    background: #f2f2f2;
+  }
 }
 `;
 

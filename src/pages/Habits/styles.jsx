@@ -9,6 +9,14 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
+export const ContainerLoading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 20vw;
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;

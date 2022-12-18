@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { api } from "../../services";
 import { AuthContext } from "../../context";
+import { ClipLoader } from "react-spinners";
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import CreateHabit from "../../components/Main/CreateHabit";
@@ -22,6 +23,14 @@ function Habits() {
       .then((res) => setHabits(res.data))
       .catch((erro) => console.log(erro));
   }, [refresh]);
+
+  if (habits.length < 1) {
+    return (
+      <S.ContainerLoading>
+        <ClipLoader color="#52B6FF" size={150} />
+      </S.ContainerLoading>
+    );
+  }
 
   return (
     <S.Container>

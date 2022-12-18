@@ -62,8 +62,21 @@ export const ContainerSaveBtn = styled.div`
   height: 35px;
   margin-top: 29px;
   gap: 0px 23px;
-  > button {
-    height: 100%;
+  > p {
+    font-size: 15.976px;
+    line-height: 20px;
+    color: ${c.button};
+    cursor: pointer;
+    opacity: ${props => props.disabled ? 0.6 : 1};
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
+    :hover {
+      opacity: 0.6;
+    }
+  }
+`;
+
+export const SaveBtn = styled.button`
+     height: 100%;
     width: 84px;
     background: ${c.button};
     border-radius: 4.63636px;
@@ -73,14 +86,4 @@ export const ContainerSaveBtn = styled.div`
     line-height: 20px;
     text-align: center;
     color: ${c.white};
-  }
-  > p {
-    font-size: 15.976px;
-    line-height: 20px;
-    color: ${c.button};
-    cursor: pointer;
-    :hover {
-      opacity: 0.7;
-    }
-  }
-`;
+`

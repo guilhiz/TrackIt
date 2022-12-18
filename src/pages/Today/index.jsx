@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context";
+import { ClipLoader } from "react-spinners";
 import { api } from "../../services";
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
@@ -32,6 +33,14 @@ function Today() {
     setPercentage(percentageHabitsCompleted.toFixed());
   };
 
+  if (todayData.length < 1) {
+    return (
+      <S.ContainerLoading>
+        <ClipLoader color="#52B6FF" size={150} />
+      </S.ContainerLoading>
+    );
+  }
+
   return (
     <S.Container>
       <Header />
@@ -40,7 +49,7 @@ function Today() {
         <S.PercentageText switch={percentage < 1 ? false : true}>
           {percentage < 1 && "Nenhum hábito concluído ainda"}
           {percentage >= 1 && `${percentage}% dos hábitos concluídos`}
-          </S.PercentageText>
+        </S.PercentageText>
         <S.TodayList>
           {todayData.length >= 1 && todayData.map((t) => <CardToday key={t.id} dayData={t} setRefresh={setRefresh} />)}
         </S.TodayList>
