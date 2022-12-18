@@ -78,5 +78,9 @@ export const ContainerSaveBtn = styled.div`
     font-size: 15.976px;
     line-height: 20px;
     color: ${c.button};
+    cursor: pointer;
+    :hover {
+      opacity: 0.7;
+    }
   }
 `;

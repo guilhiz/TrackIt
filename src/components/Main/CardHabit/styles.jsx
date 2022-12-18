@@ -28,6 +28,7 @@ export const ContainerName = styled.div`
   }
   > div {
     cursor: pointer;
+   
   }
 `;
 

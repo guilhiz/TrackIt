@@ -27,10 +27,13 @@ export const WrapperText = styled.div`
     line-height: 16px;
     margin-bottom: 1px;
   }
-  span {
-    color: ${(props) => props.switchColor && c.check};
-  }
 `;
+export const CurrentSequence = styled.span`
+  color: ${(props) => props.color && c.check};
+`
+export const HighestSequence = styled.span`
+  color: ${(props) => props.color && c.check};
+`
 
 export const CheckBox = styled.button`
   display: flex;

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { api } from "../../../services";
 import { AuthContext } from "../../../context";
 import { Check } from "phosphor-react";
@@ -6,8 +6,8 @@ import * as S from "./styles";
 
 function CardToday({ dayData, setRefresh }) {
   const { name, done, currentSequence, highestSequence, id } = dayData;
-  const { userData } = useContext(AuthContext)
-  const token = userData.token
+  const { userData } = useContext(AuthContext);
+  const token = userData.token;
 
   const checkHabit = () => {
     api
@@ -33,10 +33,16 @@ function CardToday({ dayData, setRefresh }) {
         <S.WrapperText>
           <h2>{name}</h2>
           <p>
-            Sequência atual: <span>{currentSequence}</span>
+            Sequência atual:{" "}
+            <S.CurrentSequence color={done}>
+              {`${currentSequence} ${currentSequence > 1 ? "dias" : "dia"}`}
+            </S.CurrentSequence>
           </p>
           <p>
-            Seu recorde: <span>{highestSequence}</span>
+            Seu recorde:{" "}
+            <S.HighestSequence color={currentSequence === highestSequence && done ? true : false}>
+              {`${highestSequence} ${highestSequence > 1 ? "dias" : "dia"}`}
+            </S.HighestSequence>
           </p>
         </S.WrapperText>
         <S.CheckBox

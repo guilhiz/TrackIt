@@ -3,32 +3,36 @@ import { api } from "../../../services";
 import { AuthContext } from "../../../context";
 import * as S from "./styles";
 
-function CreateHabit({setRefresh, setSwitchCreate}) {
+function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays}) {
   const listDays = ["D", "S", "T", "Q", "Q", "S", "S"];
   const { userData } = useContext(AuthContext);
-  const [name, setName] = useState("");
-  const [days, setDays] = useState([]);
+  console.log(name)
 
   const handleClick = (i) => {
-    if (days.includes(i)) return;
-    if (i === 0) {
-      setDays((c) => [...c, 7]);
-      return;
+    if (days.includes(i)) {
+      let index = days.indexOf(i)
+      const arr = [...days]
+      arr.splice(index, 1)
+      setDays(arr)
+      return
     }
     setDays((c) => [...c, i]);
   };
 
-  const handleSubmit = () => {
+  const createHabit = () => {
+    if (name === "" || days === []) return false;
+
     const token = userData.token;
     const body = { name, days };
-    api.post("/habits", body, { headers: { Authorization: `Bearer ${token}` } })
-    .then(() => {
-      setName("")
-      setDays([])
-      setRefresh(current => !current)
-      setSwitchCreate(current => !current)
-    })
-    .catch((erro) => console.log(erro));
+    api
+      .post("/habits", body, { headers: { Authorization: `Bearer ${token}` } })
+      .then(() => {
+        setName("");
+        setDays([]);
+        setRefresh((current) => !current);
+        setSwitchCreate((current) => !current);
+      })
+      .catch((erro) => console.log(erro));
   };
 
   return (
@@ -37,14 +41,14 @@ function CreateHabit({setRefresh, setSwitchCreate}) {
         <S.Input type="text" placeholder="nome do hábito" value={name} onChange={(e) => setName(e.target.value)} />
         <S.ContainerBtn>
           {listDays.map((d, i) => (
-            <S.DayBtn key={i} onClick={() => handleClick(i)} switch={days.includes(i || 7) ? true : false}>
+            <S.DayBtn key={i} onClick={() => handleClick(i)} switch={days.includes(i) ? true : false}>
               {d}
             </S.DayBtn>
           ))}
         </S.ContainerBtn>
         <S.ContainerSaveBtn>
-          <p>Cancelar</p>
-          <button onClick={handleSubmit}>Salvar</button>
+          <p onClick={() => setSwitchCreate((current) => !current)}>Cancelar</p>
+          <button onClick={createHabit}>Salvar</button>
         </S.ContainerSaveBtn>
       </S.Content>
     </S.Card>
