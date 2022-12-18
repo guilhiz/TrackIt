@@ -17,6 +17,7 @@ function Login() {
       .post("/auth/login", data)
       .then((res) => {
         setUserData(res.data);
+        localStorage.setItem("token", res.data.token)
         navigate("/hoje");
       })
       .catch((erro) => console.log(erro));

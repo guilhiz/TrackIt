@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../../context";
+import React, { useState, useEffect } from "react";
 import { api } from "../../services";
 
 import Header from "../../components/Header";
@@ -10,16 +9,15 @@ import * as S from "./styles";
 
 function Habits() {
   const [switchCreate, setSwitchCreate] = useState(false);
-  const { userData } = useContext(AuthContext);
   const [habits, setHabits] = useState([]);
   const [refresh, setRefresh] = useState([]);
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
 
   useEffect(() => {
-    const token = userData.token;
+
     api
-      .get("/habits", { headers: { Authorization: `Bearer ${token}` } })
+      .get("/habits")
       .then((res) => setHabits(res.data))
       .catch((erro) => console.log(erro));
   }, [refresh]);

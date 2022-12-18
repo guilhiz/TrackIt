@@ -12,9 +12,8 @@ import "reset-css";
 
 export function RouteProvider() {
   // const { userData } = useContext(AuthContext);
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = (localStorage.getItem("token"));
   const logged = userData.token === undefined;
-  console.log(userData.token);
   return (
     <Router>
       <GlobalStyle />
