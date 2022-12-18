@@ -29,11 +29,11 @@ export const WrapperText = styled.div`
   }
 `;
 export const CurrentSequence = styled.span`
-  color: ${(props) => props.color && c.check};
-`
+  color: ${(props) => props.CurrentColor && c.check};
+`;
 export const HighestSequence = styled.span`
-  color: ${(props) => props.color && c.check};
-`
+  color: ${(props) => props.HighestColor && c.check};
+`;
 
 export const CheckBox = styled.button`
   display: flex;

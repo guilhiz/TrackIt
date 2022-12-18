@@ -3,7 +3,7 @@ import { colors as c } from "../../../constants";
 
 export const Card = styled.div`
   width: 100%;
-  height: 91px;
+  min-height: 91px;
   background: ${c.white};
   border-radius: 5px;
   padding: 13px;
@@ -28,7 +28,7 @@ export const ContainerName = styled.div`
   }
   > div {
     cursor: pointer;
-   
+
   }
 `;
 

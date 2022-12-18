@@ -44,7 +44,7 @@ function CardHabit({ habit, setRefresh }) {
         </S.ContainerName>
         <S.ContainerBtn>
           {listDays.map((d, i) => (
-            <S.DayBtn key={i} switch={days.includes(i || 7) ? true : false}>
+            <S.DayBtn key={i} switch={days.includes(i) ? true : false}>
               {d}
             </S.DayBtn>
           ))}

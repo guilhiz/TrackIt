@@ -29,7 +29,7 @@ function Today() {
   const calcPercentage = (data) => {
     const habitsDone = data.filter((t) => t.done);
     const percentageHabitsCompleted = (habitsDone.length / data.length) * 100;
-    setPercentage(percentageHabitsCompleted);
+    setPercentage(percentageHabitsCompleted.toFixed());
   };
 
   return (

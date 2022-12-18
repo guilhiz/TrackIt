@@ -34,13 +34,13 @@ function CardToday({ dayData, setRefresh }) {
           <h2>{name}</h2>
           <p>
             Sequência atual:{" "}
-            <S.CurrentSequence color={done}>
+            <S.CurrentSequence CurrentColor={done}>
               {`${currentSequence} ${currentSequence > 1 ? "dias" : "dia"}`}
             </S.CurrentSequence>
           </p>
           <p>
             Seu recorde:{" "}
-            <S.HighestSequence color={currentSequence === highestSequence && done ? true : false}>
+            <S.HighestSequence HighestColor={currentSequence === highestSequence && done ? true : false}>
               {`${highestSequence} ${highestSequence > 1 ? "dias" : "dia"}`}
             </S.HighestSequence>
           </p>

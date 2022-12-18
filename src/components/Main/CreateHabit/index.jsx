@@ -6,7 +6,6 @@ import * as S from "./styles";
 function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays}) {
   const listDays = ["D", "S", "T", "Q", "Q", "S", "S"];
   const { userData } = useContext(AuthContext);
-  console.log(name)
 
   const handleClick = (i) => {
     if (days.includes(i)) {
@@ -16,6 +15,7 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
       setDays(arr)
       return
     }
+    console.log(i)
     setDays((c) => [...c, i]);
   };
 
