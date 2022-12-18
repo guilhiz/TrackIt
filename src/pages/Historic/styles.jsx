@@ -51,3 +51,22 @@ export const CalendarContainer = styled.div`
     }
   }
 `;
+
+export const GreenDay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 34px;
+  background-color: #97cb63;
+  border-radius: 50%;
+`;
+export const RedDay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 34px;
+  background-color: #ea5766;
+  border-radius: 50%;
+`;
