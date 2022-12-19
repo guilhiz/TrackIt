@@ -10,6 +10,9 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   background-color: ${c.title};
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+  }
 `;
 
 export const Content = styled.div`

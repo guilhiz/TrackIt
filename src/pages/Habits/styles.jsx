@@ -7,6 +7,10 @@ export const Container = styled.div`
   padding: 90px 17px 100px;
   background-color: ${c.background};
   margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 100%;
+    padding: 90px 200px 100px;
+  }
 `;
 
 export const ContainerLoading = styled.div`

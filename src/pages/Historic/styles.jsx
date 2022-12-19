@@ -7,7 +7,12 @@ export const Container = styled.div`
   padding: 90px 17px 100px;
   background-color: ${c.background};
   margin: 0 auto;
-  > h1 {
+  @media (min-width: 768px) {
+    width: 100%;
+    padding: 90px 400px 100px;
+    h1 {
+      text-align: center;
+    }
   }
 `;
 

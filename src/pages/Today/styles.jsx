@@ -7,6 +7,13 @@ export const Container = styled.div`
   padding: 90px 17px 100px;
   background-color: ${c.background};
   margin: 0 auto;
+  @media (min-width: 768px) {
+    width: 100%;
+    padding: 90px 200px 100px;
+    h1 {
+      text-align: center;
+    }
+  }
 `;
 
 export const ContainerLoading = styled.div`
@@ -32,9 +39,12 @@ export const Content = styled.div`
 
 export const PercentageText = styled.p`
   font-size: 18px;
-    line-height: 22px;
-    color: ${(props) => (props.switch ?  c.check : "#bababa")};
-`
+  line-height: 22px;
+  color: ${(props) => (props.switch ? c.check : "#bababa")};
+  @media (min-width: 768px) {
+    text-align: center;
+  }
+`;
 
 export const TodayList = styled.ul`
   display: flex;
