@@ -2,17 +2,28 @@ import React, { useState, useEffect, useContext } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services";
 import { AuthContext } from "../../context";
+import { Check, X } from "phosphor-react";
 
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
 import * as S from "./styles";
 
 function Historic() {
-  const [value, onChange] = useState(new Date());
   const [historicList, setHistoricLIst] = useState([]);
   const { userData } = useContext(AuthContext);
+  const toastConfig = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+  };
 
   useEffect(() => {
     const token = userData.token;
@@ -42,9 +53,34 @@ function Historic() {
     return day;
   };
 
+  const toastLayout = (habits) => {
+    return habits.map((h) => {
+      return (
+        <p key={h.id}>
+          {" "}
+          Hábito: {h.name} {h.done && <Check size={16} color="#97cb63" weight="bold" />}
+          {!h.done && <X size={16} color="#ea5766" weight="bold" />}
+        </p>
+      );
+    });
+  };
+
   const handleClick = (value) => {
     const formattedDate = dayjs(value).locale("pt-br").format("DD/MM/YYYY");
+    const day = formattedDate.split("/")[0];
+    historicList.forEach((item) => {
+      if (formattedDate === item.day) {
+        toast(
+          <div>
+            {`Dia: ${day}`}
+            {toastLayout(item.habits)}
+          </div>,
+          toastConfig
+        );
+      }
+    });
   };
+
   return (
     <S.Container>
       <Header />
@@ -61,6 +97,7 @@ function Historic() {
         </S.CalendarContainer>
       </S.Content>
       <Menu />
+      <ToastContainer />
     </S.Container>
   );
 }
