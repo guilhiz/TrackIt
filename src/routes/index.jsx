@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import AuthProvider from "../context";
-import React from "react";
+import { AuthContext } from "../context";
+import React, { useContext } from "react";
 
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
@@ -12,10 +13,9 @@ import GlobalStyle from "../styles/GlobalStyle";
 import "reset-css";
 
 export function RouteProvider() {
-  const token = localStorage.getItem("token");
-  const logged = token === null;
-  console.log(token == null);
-
+  const { userData } = useContext(AuthContext);
+  const logged = userData === undefined;
+  console.log(logged)
   return (
     <Router>
       <GlobalStyle />

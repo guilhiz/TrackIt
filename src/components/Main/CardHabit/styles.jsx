@@ -7,6 +7,9 @@ export const Card = styled.div`
   background: ${c.white};
   border-radius: 5px;
   padding: 13px;
+
+  animation: ${(props) => (props.switch ? "backOutLeft" : "")};
+  animation-duration: 1s;
 `;
 
 export const Content = styled.div`

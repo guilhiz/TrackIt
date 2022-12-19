@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colors as c } from "../../constants";
+import "animate.css";
 
 export const Container = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ export const Container = styled.div`
   background-color: ${c.white};
   margin: 50px auto;
   padding: 68px 36px 0px;
+  @media (max-width: 768px) {
+    height: 100vh;
+    margin: 0 auto;
+  }
 `;
 
 export const Content = styled.div`
@@ -23,6 +28,9 @@ export const Content = styled.div`
   > img {
     display: block;
     width: 50%;
+    animation: bounceInDown, tada;
+    animation-duration: 1s;
+    animation-delay: 0s, 1s;
   }
 `;
 

@@ -10,8 +10,13 @@ function Header() {
   const navigate = useNavigate();
 
   const signout = () => {
-    navigate("/");
     localStorage.clear();
+    setUserData({});
+    navigate("/");
+
+    // setTimeout(() => {
+    //   localStorage.clear();
+    // }, 1000);
   };
 
   return (

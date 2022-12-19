@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { api } from "../../../services";
 import { AuthContext } from "../../../context";
 import { Trash } from "phosphor-react";
@@ -10,6 +10,7 @@ function CardHabit({ habit, setRefresh }) {
   const { days, id, name } = habit;
   const { userData } = useContext(AuthContext);
   const listDays = ["D", "S", "T", "Q", "Q", "S", "S"];
+  const [switchAnimation, setSwitchAnimation] = useState(false);
 
   const deleteHabit = () => {
     const token = userData.token;
@@ -22,7 +23,10 @@ function CardHabit({ habit, setRefresh }) {
           onClick: () => {
             api
               .delete(`/habits/${id}`, { headers: { Authorization: `Bearer ${token}` } })
-              .then(() => setRefresh((current) => !current))
+              .then(() => {
+                setSwitchAnimation(true);
+                setTimeout(() => setRefresh((current) => !current), 500);
+              })
               .catch((erro) => console.log(erro));
           },
         },
@@ -34,7 +38,7 @@ function CardHabit({ habit, setRefresh }) {
   };
 
   return (
-    <S.Card>
+    <S.Card switch={switchAnimation}>
       <S.Content>
         <S.ContainerName>
           <p>{name}</p>

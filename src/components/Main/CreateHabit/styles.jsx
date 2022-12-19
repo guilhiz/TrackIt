@@ -7,6 +7,9 @@ export const Card = styled.div`
   background: ${c.white};
   border-radius: 5px;
   padding: 18px;
+
+  animation: ${(props) => (props.switch ? "backOutLeft" : "backInLeft")};
+  animation-duration: 1s;
 `;
 
 export const Content = styled.div`
@@ -67,8 +70,8 @@ export const ContainerSaveBtn = styled.div`
     line-height: 20px;
     color: ${c.button};
     cursor: pointer;
-    opacity: ${props => props.disabled ? 0.6 : 1};
-    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
+    opacity: ${(props) => (props.disabled ? 0.6 : 1)};
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
     :hover {
       opacity: 0.6;
     }
@@ -76,14 +79,14 @@ export const ContainerSaveBtn = styled.div`
 `;
 
 export const SaveBtn = styled.button`
-     height: 100%;
-    width: 84px;
-    background: ${c.button};
-    border-radius: 4.63636px;
-    border: none;
+  height: 100%;
+  width: 84px;
+  background: ${c.button};
+  border-radius: 4.63636px;
+  border: none;
 
-    font-size: 15.976px;
-    line-height: 20px;
-    text-align: center;
-    color: ${c.white};
-`
+  font-size: 15.976px;
+  line-height: 20px;
+  text-align: center;
+  color: ${c.white};
+`;

@@ -45,4 +45,8 @@ export const CheckBox = styled.button`
   background: ${(props) => !props.switchColor && "#EBEBEB"};
   border-radius: 5px;
   border: none;
+  :focus {
+    animation: rubberBand;
+    animation-duration: 2s;
+  }
 `;

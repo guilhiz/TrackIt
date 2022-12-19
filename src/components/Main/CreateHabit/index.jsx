@@ -8,6 +8,7 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
   const listDays = ["D", "S", "T", "Q", "Q", "S", "S"];
   const { userData } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const [switchAnimation, setSwitchAnimation] = useState(false);
 
   const handleClick = (i) => {
     if (days.includes(i)) {
@@ -24,7 +25,7 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
   const createHabit = () => {
     if (name === "" || days === []) return false;
 
-    setLoading(true)
+    setLoading(true);
     const token = userData.token;
     const body = { name, days };
     api
@@ -33,18 +34,24 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
         setName("");
         setDays([]);
         setRefresh((current) => !current);
-        setLoading(false)
-        setSwitchCreate((current) => !current);
+        setLoading(false);
+        setSwitchAnimation(true);
+        setTimeout(() => setSwitchCreate((current) => !current), 800);
       })
       .catch((erro) => {
-        console.log(erro)
-        alert(`Ops! Ocorreu um erro ao criar um habito... ${erro.message}`)
-        setLoading(false)
+        console.log(erro);
+        alert(`Ops! Ocorreu um erro ao criar um habito... ${erro.message}`);
+        setLoading(false);
       });
   };
 
+  const cancel = () => {
+    setSwitchAnimation(true);
+    setTimeout(() => setSwitchCreate((current) => !current), 800);
+  };
+
   return (
-    <S.Card>
+    <S.Card switch={switchAnimation}>
       <S.Content>
         <S.Input
           disabled={loading}
@@ -66,7 +73,7 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
           ))}
         </S.ContainerBtn>
         <S.ContainerSaveBtn disabled={loading}>
-          <p onClick={() => !loading && setSwitchCreate((current) => !current)}>Cancelar</p>
+          <p onClick={() => !loading && cancel()}>Cancelar</p>
           <S.SaveBtn disabled={loading} onClick={createHabit}>
             {loading && <PulseLoader color="#FFFFFF" loading={loading} margin={8} size={15} />}
             {!loading && "Salvar"}

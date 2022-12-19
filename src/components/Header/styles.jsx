@@ -27,6 +27,11 @@ export const Logo = styled.p`
   font-size: 39px;
   line-height: 49px;
   color: #ffffff;
+
+  :hover {
+    animation: tada;
+    animation-duration: 1s;
+  }
 `;
 
 export const ContainerProfile = styled.div`
