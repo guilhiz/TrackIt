@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { colors as c } from "../../constants";
 
 export const Container = styled.header`
@@ -25,12 +25,40 @@ export const Logo = styled.p`
   line-height: 49px;
   color: #ffffff;
 `;
+
+export const ContainerProfile = styled.div`
+  display: flex;
+  align-items: center;
+  :hover div {
+    width: 80px;
+    background-color: #fff;
+  }
+`;
+
+export const SignOutContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0px 12px 0px 8px;
+  width: 0px;
+  background-color: transparent;
+  transition: all 300ms ease-in-out;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+  cursor: pointer;
+  p {
+    color: ${c.title};
+    margin-left: 5px;
+  }
+`;
+
 export const ProfileImg = styled.img`
   display: block;
   width: 51px;
   border-radius: 50%;
+  margin-left: -7px;
+  cursor: pointer;
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-`
+`;
