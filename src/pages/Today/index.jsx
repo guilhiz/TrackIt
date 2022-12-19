@@ -18,10 +18,9 @@ function Today() {
   const navigate = useNavigate();
   const token = userData.token;
   const date = dayjs().locale("pt-br").format("dddd, DD/MM");
-  console.log(userData);
 
   useEffect(() => {
-    if (!userData.token) {
+    if (userData.token === undefined) {
       navigate("/");
     }
     api

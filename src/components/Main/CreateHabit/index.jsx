@@ -18,7 +18,6 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
       setDays(arr);
       return;
     }
-    console.log(i);
     setDays((c) => [...c, i]);
   };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
@@ -14,11 +14,14 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (userData.token !== undefined) {
+      navigate("/hoje");
+    }
+  });
+
   const onSubmit = (data) => {
     setLoading(true);
-    if (userData.token) {
-      navigate("/");
-    }
     api
       .post("/auth/login", data)
       .then((res) => {

@@ -20,7 +20,7 @@ function Habits() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!userData.token) {
+    if (userData.token === undefined) {
       navigate("/");
     }
     api

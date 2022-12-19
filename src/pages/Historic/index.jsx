@@ -29,7 +29,7 @@ function Historic() {
   };
 
   useEffect(() => {
-    if (!userData.token) {
+    if (userData.token === undefined) {
       navigate("/");
     }
     const token = userData.token;
