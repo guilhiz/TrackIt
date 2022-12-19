@@ -7,13 +7,12 @@ import * as S from "./styles";
 
 function Header() {
   const { userData, setUserData } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signout = () => {
-    localStorage.clear()
-    setUserData({})
-    navigate('/')
-  }
+    navigate("/");
+    localStorage.clear();
+  };
 
   return (
     <S.Container>
@@ -23,10 +22,10 @@ function Header() {
         </S.StyledLink>
         <S.ContainerProfile onClick={signout}>
           <S.SignOutContainer>
-          <SignOut size={32} color="#126BA5" />
-          <p>Exit</p>
+            <SignOut size={32} color="#126BA5" />
+            <p>Exit</p>
           </S.SignOutContainer>
-        <S.ProfileImg src={userData.image} alt="" />
+          <S.ProfileImg src={userData.image} alt="" />
         </S.ContainerProfile>
       </S.Content>
     </S.Container>

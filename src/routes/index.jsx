@@ -13,7 +13,8 @@ import "reset-css";
 
 export function RouteProvider() {
   const token = localStorage.getItem("token");
-  const logged = token === undefined;
+  const logged = token === null;
+  console.log(token == null);
 
   return (
     <Router>

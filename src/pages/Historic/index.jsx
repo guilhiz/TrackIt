@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Check, X } from "phosphor-react";
+import { ClipLoader } from "react-spinners";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
@@ -6,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services";
 import { AuthContext } from "../../context";
-import { Check, X } from "phosphor-react";
+
 
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
@@ -80,6 +82,14 @@ function Historic() {
       }
     });
   };
+
+  if (historicList.length < 1) {
+    return (
+      <S.ContainerLoading>
+        <ClipLoader color="#52B6FF" size={150} />
+      </S.ContainerLoading>
+    );
+  }
 
   return (
     <S.Container>
