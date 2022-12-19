@@ -16,7 +16,7 @@ function Menu() {
           <div>
             <CircularProgressbar
               value={percentage}
-              text="entre"
+              text="Hoje"
               background
               backgroundPadding={6}
               styles={buildStyles({
