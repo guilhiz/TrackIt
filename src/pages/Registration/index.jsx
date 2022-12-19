@@ -22,7 +22,7 @@ function Registration() {
       })
       .catch((erro) => {
         alert(`Verifique se as informações foram digitadas corretamente! ${erro}`);
-        console.log(erro)
+        console.log(erro);
         setLoading(false);
       });
   };

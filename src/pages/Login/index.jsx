@@ -10,12 +10,15 @@ import * as S from "./styles";
 
 function Login() {
   const { register, handleSubmit } = useForm();
-  const { setUserData } = useContext(AuthContext);
+  const { setUserData, userData } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
     setLoading(true);
+    if (userData.token) {
+      navigate("/");
+    }
     api
       .post("/auth/login", data)
       .then((res) => {
@@ -25,8 +28,8 @@ function Login() {
         navigate("/hoje");
       })
       .catch((erro) => {
-        console.log(erro)
-        alert(`Verifique se as informações foram digitadas corretamente! ${erro}` )
+        console.log(erro);
+        alert(`Verifique se as informações foram digitadas corretamente! ${erro}`);
         setLoading(false);
       });
   };

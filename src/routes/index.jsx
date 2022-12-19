@@ -1,7 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AuthProvider from "../context";
-import { AuthContext } from "../context";
-import React, { useContext } from "react";
+import React from "react";
 
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
@@ -13,15 +12,12 @@ import GlobalStyle from "../styles/GlobalStyle";
 import "reset-css";
 
 export function RouteProvider() {
-  const { userData } = useContext(AuthContext);
-  const logged = userData === undefined;
-  console.log(logged)
   return (
     <Router>
       <GlobalStyle />
       <AuthProvider>
         <Routes>
-          <Route path="/" element={logged ? <Login /> : <Navigate to="/hoje" replace />} />
+          <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Registration />} />
           <Route path="/habitos" element={<Habits />} />
           <Route path="/hoje" element={<Today />} />

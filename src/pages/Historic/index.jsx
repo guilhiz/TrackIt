@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../../services";
 import { AuthContext } from "../../context";
-
+import { useNavigate } from "react-router-dom";
 
 import Header from "../../components/Header";
 import Menu from "../../components/Menu";
@@ -17,6 +17,7 @@ import * as S from "./styles";
 function Historic() {
   const [historicList, setHistoricLIst] = useState([]);
   const { userData } = useContext(AuthContext);
+  const navigate = useNavigate();
   const toastConfig = {
     position: "top-center",
     autoClose: 2000,
@@ -28,6 +29,9 @@ function Historic() {
   };
 
   useEffect(() => {
+    if (!userData.token) {
+      navigate("/");
+    }
     const token = userData.token;
     api
       .get("/habits/history/daily", { headers: { Authorization: `Bearer ${token}` } })

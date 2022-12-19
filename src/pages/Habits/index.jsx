@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../../services";
 import { AuthContext } from "../../context";
 import { ClipLoader } from "react-spinners";
@@ -16,8 +17,12 @@ function Habits() {
   const [days, setDays] = useState([]);
   const { userData } = useContext(AuthContext);
   const token = userData.token;
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!userData.token) {
+      navigate("/");
+    }
     api
       .get("/habits", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => setHabits(res.data))

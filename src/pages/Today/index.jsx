@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context";
 import { ClipLoader } from "react-spinners";
 import { api } from "../../services";
@@ -14,10 +15,15 @@ function Today() {
   const [todayData, setTodayData] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const { userData, setPercentage, percentage } = useContext(AuthContext);
+  const navigate = useNavigate();
   const token = userData.token;
   const date = dayjs().locale("pt-br").format("dddd, DD/MM");
+  console.log(userData);
 
   useEffect(() => {
+    if (!userData.token) {
+      navigate("/");
+    }
     api
       .get("/habits/today", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
