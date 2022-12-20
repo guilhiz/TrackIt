@@ -26,8 +26,8 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   └── 📄Index.html
 |
 ├── 📁src
+|   |
 |   ├── 📁assets
-|   |   
 |   ├── 📁components
 |   |   | 
 |   |   ├── 📁Header
@@ -46,7 +46,6 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   |    ├── 📁Registration
 |   |    └── 📁Today
 |   |    
-|   | 
 |   ├── 📁routes
 |   ├── 📁services
 |   ├── 📁styles
