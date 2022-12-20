@@ -36,7 +36,7 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   |   └── 📄App.js
 |   |
 |   ├── 📁constants
-|   ├── 📁constext
+|   ├── 📁context
 |   ├── 📁hooks
 |   ├── 📁pages
 |   |    |
