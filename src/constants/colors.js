@@ -8,6 +8,7 @@ export const lightTheme = {
   border: "#D5D5D5",
   check: "#8FC549",
   input: "ffffff",
+  calendar: "#FFFFFF",
 };
 
 export const darkTheme = {
@@ -20,4 +21,5 @@ export const darkTheme = {
   border: "#111111",
   check: "#8FC549",
   input: "#19181F",
+  calendar: "#9b9b9b",
 };

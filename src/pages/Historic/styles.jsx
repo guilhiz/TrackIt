@@ -39,6 +39,7 @@ export const CalendarContainer = styled.div`
     height: 402px;
     border-radius: 10px;
     border: none;
+    background-color: ${props => props.theme.calendar};
   }
 
   .calendar .react-calendar__month-view__days {

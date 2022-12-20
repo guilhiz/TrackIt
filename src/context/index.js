@@ -8,7 +8,7 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
   const [userData, setUserData] = useStickyState({}, "userData");
   const [percentage, setPercentage] = useState(0);
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(false);
   console.log(theme)
 
   const calcPercentage = () => {
