@@ -14,8 +14,8 @@ import "reset-css";
 export function RouteProvider() {
   return (
     <Router>
-      <GlobalStyle />
       <AuthProvider>
+      <GlobalStyle />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Registration />} />

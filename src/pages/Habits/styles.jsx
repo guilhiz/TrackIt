@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
   min-height: 100vh;
   padding: 90px 17px 100px;
-  background-color: ${c.background};
+  background-color: ${(props) => props.theme.background};
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 100%;
@@ -19,6 +18,7 @@ export const ContainerLoading = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 20vw;
+  background-color: ${(props) => props.theme.background};
 `;
 
 export const Content = styled.div`
@@ -41,12 +41,12 @@ export const Content = styled.div`
 export const CreateBtn = styled.button`
   width: 40px;
   height: 35px;
-  background: ${c.button};
+  background: ${(props) => props.theme.button};
   border-radius: 5px;
   cursor: pointer;
   border: none;
 
   font-size: 26.976px;
   line-height: 34px;
-  color: ${c.white};
+  color: ${(props) => props.theme.white};
 `;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { colors as c } from "../../../constants";
+
 
 export const Card = styled.div`
   width: 100%;
   height: 94px;
-  background: ${c.white};
+  background: ${props => props.theme.white};
   border-radius: 5px;
   padding: 13px;
 `;
@@ -19,7 +19,7 @@ export const WrapperText = styled.div`
   > h2 {
     font-size: 19.976px;
     line-height: 25px;
-    color: ${c.text};
+    color: ${props => props.theme.text};
     margin-bottom: 7px;
   }
   > p {
@@ -29,10 +29,10 @@ export const WrapperText = styled.div`
   }
 `;
 export const CurrentSequence = styled.span`
-  color: ${(props) => props.CurrentColor && c.check};
+  color: ${(props) => props.CurrentColor && props.theme.check};
 `;
 export const HighestSequence = styled.span`
-  color: ${(props) => props.HighestColor && c.check};
+  color: ${(props) => props.HighestColor && props.theme.check};
 `;
 
 export const CheckBox = styled.button`
@@ -41,8 +41,8 @@ export const CheckBox = styled.button`
   justify-content: center;
   width: 69px;
   height: 69px;
-  background: ${(props) => props.switchColor && c.check};
-  background: ${(props) => !props.switchColor && "#EBEBEB"};
+  background: ${(props) => props.switchColor && props.theme.check};
+  background: ${(props) => !props.switchColor && "#DBDBDB"};
   border-radius: 5px;
   border: none;
   :focus {

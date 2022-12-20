@@ -22,7 +22,10 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
   };
 
   const createHabit = () => {
-    if (name === "" || days === []) return false;
+    if (name === "" || days.length < 1) {
+      alert("preencha todos os campos antes de salvar")
+      return false
+    };
 
     setLoading(true);
     const token = userData.token;

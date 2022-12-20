@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { colors as c } from "../../../constants";
 
 export const Card = styled.div`
   width: 100%;
   min-height: 91px;
-  background: ${c.white};
+  background: ${props => props.theme.white};
   border-radius: 5px;
   padding: 13px;
 
@@ -43,14 +42,14 @@ export const ContainerBtn = styled.div`
 export const DayBtn = styled.button`
   width: 30px;
   height: 30px;
-  background: ${(props) => (props.switch ? "#CFCFCF" : "#FFFFFF")};
-  border: 1px solid ${c.border};
+  background: ${(props) => (props.switch ? "#CFCFCF" : props.theme.white)};
+  border: 1px solid ${props => props.theme.border};
   border-radius: 5px;
   cursor: auto;
 
   font-size: 19.976px;
   line-height: 25px;
-  color: ${(props) => (props.switch ? "#FFFFFF" : "#DBDBDB")};
+  color: ${(props) => (props.switch ? props.theme.white : "#DBDBDB")};
   :hover {
     opacity: 1;
   }

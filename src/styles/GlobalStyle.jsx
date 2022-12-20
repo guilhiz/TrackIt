@@ -1,26 +1,26 @@
 import { createGlobalStyle } from "styled-components";
-import { colors as c } from "../constants";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
   box-sizing: border-box;
-  font-family: 'Lexend Deca';
-  font-style: normal;
-  font-weight: 400;
-  background-color: #E5E5E5;
+  font-family: 'Lexend Deca' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+   background-color: #E5E5E5;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 p {
-  color: ${c.text};
+  color: ${props => props.theme.text};
 }
 
 h1 {
-  font-size: 23px;
-  line-height: 29px;
-  color: ${c.title};
+
+  font-size: 23px !important;
+  line-height: 29px !important;
+  color: ${props => props.theme.title};
 }
 
 button {
@@ -44,7 +44,11 @@ button {
 }
 input {
   :disabled {
-    background: #f2f2f2;
+    background: ${(props) => props.theme.background};
+    opacity: 0.6;
+    ::placeholder {
+      opacity: 0.6;
+    }
   }
 }
 `;

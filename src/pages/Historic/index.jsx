@@ -16,8 +16,9 @@ import * as S from "./styles";
 
 function Historic() {
   const [historicList, setHistoricLIst] = useState([]);
-  const { userData } = useContext(AuthContext);
+  const { userData, theme } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const toastConfig = {
     position: "top-center",
     autoClose: 2000,
@@ -25,7 +26,7 @@ function Historic() {
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
-    theme: "light",
+    theme: theme ? "dark" : "light",
   };
 
   useEffect(() => {

@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
   min-height: 100vh;
   padding: 90px 17px 100px;
-  background-color: ${c.background};
+  background-color: ${props => props.theme.background};
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 100%;
@@ -22,6 +21,7 @@ export const ContainerLoading = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 20vw;
+  background-color: ${props => props.theme.background};
 `;
 
 export const Content = styled.div`
@@ -32,7 +32,7 @@ export const Content = styled.div`
   h1 {
     font-size: 23px;
     line-height: 29px;
-    color: ${c.title};
+    color: ${props => props.theme.title};
     margin-bottom: 5px;
   }
 `;
@@ -40,7 +40,7 @@ export const Content = styled.div`
 export const PercentageText = styled.p`
   font-size: 18px;
   line-height: 22px;
-  color: ${(props) => (props.switch ? c.check : "#bababa")};
+  color: ${(props) => (props.switch ? props.theme.check : "#bababa")};
   @media (min-width: 768px) {
     text-align: center;
   }

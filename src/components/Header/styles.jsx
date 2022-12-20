@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colors as c } from "../../constants";
 
 export const Container = styled.header`
   height: 70px;
@@ -9,7 +8,7 @@ export const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: ${c.title};
+  background-color: ${props => props.theme.title};
   @media (min-width: 768px) {
     padding: 10px 20px;
   }
@@ -54,7 +53,7 @@ export const SignOutContainer = styled.div`
   border-top-left-radius: 7px;
   cursor: pointer;
   p {
-    color: ${c.title};
+    color: ${props => props.theme.title};
     margin-left: 5px;
   }
 `;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   display: flex;
@@ -9,7 +8,7 @@ export const Container = styled.div`
   min-width: 375px;
   max-width: 400px;
   height: 90vh;
-  background-color: ${c.white};
+  background-color: ${(props) => props.theme.background};
   margin: 30px auto;
   padding: 68px 36px 0px;
   @media (max-width: 768px) {
@@ -44,14 +43,18 @@ export const Form = styled.form`
 export const Input = styled.input`
   width: 100%;
   height: 45px;
-  background: #ffffff;
-  border: 1px solid ${c.border};
+  background-color: ${(props) => props.theme.input};
+  border: 1px solid ${(props) => props.theme.border};
   border-radius: 5px;
   padding-left: 11px;
+  color: ${(props) => props.theme.text};
+  :focus {
+    outline: none;
+  }
   ::placeholder {
     font-size: 19.976px;
     line-height: 25px;
-    color: ${c.placeholder};
+    color: ${(props) => props.theme.placeholder};
     opacity: 1;
   }
 `;
@@ -62,7 +65,7 @@ export const SubmitBtn = styled.button`
   justify-content: center;
   height: 45px;
   width: 100%;
-  background-color: ${c.button};
+  background-color: ${(props) => props.theme.button};
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -70,7 +73,7 @@ export const SubmitBtn = styled.button`
   font-size: 20.976px;
   line-height: 26px;
   text-align: center;
-  color: ${c.white};
+  color: ${(props) => props.theme.white};
   :hover {
     opacity: 0.9;
   }
@@ -84,7 +87,7 @@ export const StyledLink = styled(Link)`
   line-height: 17px;
   text-align: center;
   text-decoration-line: underline;
-  color: ${c.button};
+  color: ${(props) => props.theme.button};
   margin-top: 25px;
   cursor: pointer;
 `;

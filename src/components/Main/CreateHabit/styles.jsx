@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { colors as c } from "../../../constants";
 
 export const Card = styled.div`
   width: 100%;
   height: 180px;
-  background: ${c.white};
+  background: ${(props) => props.theme.white};
   border-radius: 5px;
   padding: 18px;
 
@@ -22,19 +21,23 @@ export const Content = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 45px;
-  background: ${c.white};
-  border: 1px solid ${c.border};
+  background: ${(props) => props.theme.input};
+  border: 1px solid ${(props) => props.theme.border};
   border-radius: 5px;
   padding-left: 11px;
 
   font-size: 19.976px;
   line-height: 25px;
-  color: ${c.text};
+  color: ${(props) => props.theme.text};
+
+  :focus {
+    outline: none;
+  }
 
   ::placeholder {
     font-size: 20px;
     line-height: 25px;
-    color: ${c.placeholder};
+    color: ${(props) => props.theme.placeholder};
     opacity: 1;
   }
 `;
@@ -47,14 +50,14 @@ export const ContainerBtn = styled.div`
 export const DayBtn = styled.button`
   width: 30px;
   height: 30px;
-  background: ${(props) => (props.switch ? "#CFCFCF" : "#FFFFFF")};
-  border: 1px solid ${c.border};
+  background: ${(props) => (props.switch ? "#CFCFCF" : props.theme.white)};
+  border: 1px solid ${(props) => props.theme.border};
   border-radius: 5px;
   cursor: pointer;
 
   font-size: 19.976px;
   line-height: 25px;
-  color: ${(props) => (props.switch ? "#FFFFFF" : "#DBDBDB")};
+  color: ${(props) => (props.switch ? props.theme.white : "#DBDBDB")};
 `;
 
 export const ContainerSaveBtn = styled.div`
@@ -68,7 +71,7 @@ export const ContainerSaveBtn = styled.div`
   > p {
     font-size: 15.976px;
     line-height: 20px;
-    color: ${c.button};
+    color: ${(props) => props.theme.button};
     cursor: pointer;
     opacity: ${(props) => (props.disabled ? 0.6 : 1)};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
@@ -81,12 +84,12 @@ export const ContainerSaveBtn = styled.div`
 export const SaveBtn = styled.button`
   height: 100%;
   width: 84px;
-  background: ${c.button};
+  background: ${(props) => props.theme.button};
   border-radius: 4.63636px;
   border: none;
 
   font-size: 15.976px;
   line-height: 20px;
   text-align: center;
-  color: ${c.white};
+  color: ${(props) => props.theme.white};
 `;

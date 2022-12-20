@@ -14,7 +14,7 @@ import CardToday from "../../components/Main/CardToday";
 function Today() {
   const [todayData, setTodayData] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  const { userData, setPercentage, percentage } = useContext(AuthContext);
+  const { userData, percentage, calcPercentage } = useContext(AuthContext);
   const navigate = useNavigate();
   const token = userData.token;
   const date = dayjs().locale("pt-br").format("dddd, DD/MM");
@@ -27,16 +27,10 @@ function Today() {
       .get("/habits/today", { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         setTodayData(res.data);
-        calcPercentage(res.data);
+        calcPercentage();
       })
       .catch((erro) => console.log(erro));
   }, [refresh]);
-
-  const calcPercentage = (data) => {
-    const habitsDone = data.filter((t) => t.done);
-    const percentageHabitsCompleted = (habitsDone.length / data.length) * 100;
-    setPercentage(percentageHabitsCompleted.toFixed());
-  };
 
   if (todayData.length < 1) {
     return (

@@ -14,6 +14,7 @@ function Menu() {
         <S.StyledLink to={`/habitos`}>Hábitos</S.StyledLink>
         <Link to={`/hoje`}>
           <div>
+
             <CircularProgressbar
               value={percentage}
               text="Hoje"

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colors as c } from "../../constants";
+
 
 export const Container = styled.footer`
   width: 100%;
   height: 70px;
-  background-color: ${c.white};
+  background-color: ${props => props.theme.white};
   position: fixed;
   bottom: 0;
   left: 0;
@@ -29,7 +29,7 @@ export const Content = styled.div`
 export const StyledLink = styled(Link)`
   font-size: 18px;
   line-height: 22px;
-  color: ${c.button};
+  color: ${props => props.theme.button};
   cursor: pointer;
   text-decoration: none;
 `;

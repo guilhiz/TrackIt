@@ -15,7 +15,7 @@ function Habits() {
   const [refresh, setRefresh] = useState([]);
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
-  const { userData } = useContext(AuthContext);
+  const { userData, calcPercentage } = useContext(AuthContext);
   const token = userData.token;
   const navigate = useNavigate();
 
@@ -25,9 +25,12 @@ function Habits() {
     }
     api
       .get("/habits", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => setHabits(res.data))
+      .then((res) => {
+        setHabits(res.data)
+        calcPercentage()
+      })
       .catch((erro) => console.log(erro));
-  }, [refresh]);
+  }, [refresh, habits]);
 
   if (habits.length < 1) {
     return (

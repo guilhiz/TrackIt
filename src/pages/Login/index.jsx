@@ -10,7 +10,7 @@ import * as S from "./styles";
 
 function Login() {
   const { register, handleSubmit } = useForm();
-  const { setUserData, userData } = useContext(AuthContext);
+  const { setUserData, userData, setTheme, theme } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -19,6 +19,10 @@ function Login() {
       navigate("/hoje");
     }
   });
+
+  const themeToggler = () => {
+    setTheme((current) => !current);
+  };
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -40,6 +44,13 @@ function Login() {
   return (
     <S.Container>
       <S.Content>
+        <S.ContainerDarkMode>
+          <input type="checkbox" id="darkMode-toggle" checked={theme} onChange={() => themeToggler()} />
+          <S.LabelDarkMode htmlFor="darkMode-toggle">
+            <div></div>
+          </S.LabelDarkMode>
+        </S.ContainerDarkMode>
+
         <img src={logo} alt="" />
         <S.Form onSubmit={handleSubmit(onSubmit)}>
           <S.Input type="email" disabled={loading} {...register("email", { required: true })} placeholder="email" />

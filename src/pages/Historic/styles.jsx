@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { colors as c } from "../../constants";
 
 export const Container = styled.div`
   width: 375px;
   min-height: 100vh;
   padding: 90px 17px 100px;
-  background-color: ${c.background};
+  background-color: ${props => props.theme.background};
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 100%;
@@ -22,6 +21,7 @@ export const ContainerLoading = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 20vw;
+  background-color: ${props => props.theme.background};
 `;
 
 export const Content = styled.div`
