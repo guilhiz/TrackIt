@@ -29,6 +29,7 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   ├── 📁assets
 |   |   
 |   ├── 📁components
+|   |   | 
 |   |   ├── 📁Footer
 |   |   ├── 📁FormSeat
 |   |   ├── 📁Header
@@ -38,13 +39,18 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   |   └── 📄App.js
 |   |
 |   ├── 📁constants
+|   ├── 📁constext
+|   ├── 📁hooks
 |   ├── 📁pages
-|   |    ├── 📁Home
-|   |    ├── 📁OrderConfirmed
-|   |    ├── 📁Sessions
-|   |    └── 📁SessionSeats
+|   |    |
+|   |    ├── 📁Habits
+|   |    ├── 📁Historic
+|   |    ├── 📁Login
+|   |    ├── 📁Registration
+|   |    └── 📁Today
+|   |    
 |   | 
-|   | 
+|   ├── 📁routes
 |   ├── 📁services
 |   ├── 📁styles
 |   | 
