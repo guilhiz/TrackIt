@@ -1,4 +1,4 @@
-<h1 align="center">TrackIt :movie_camera:</h1>
+<h1 align="center">TrackIt :pencil:</h1>
 
 
 ![TrackIt](https://user-images.githubusercontent.com/109693663/208705473-bf4132cc-ef55-48e8-b343-79baf89b1753.gif)
