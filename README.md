@@ -1,7 +1,7 @@
 <h1 align="center">TrackIt :pencil:</h1>
 
 
-![TrackIt](https://user-images.githubusercontent.com/109693663/208705473-bf4132cc-ef55-48e8-b343-79baf89b1753.gif)
+![TrackIt](https://user-images.githubusercontent.com/109693663/208771176-5d212b59-7fed-4467-8f80-666e40d04678.gif)
 
 
 
