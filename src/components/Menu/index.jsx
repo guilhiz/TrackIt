@@ -9,10 +9,10 @@ import * as S from "./styles";
 function Menu() {
   const { percentage } = useContext(AuthContext);
   return (
-    <S.Container>
+    <S.Container data-test="menu">
       <S.Content>
-        <S.StyledLink to={`/habitos`}>Hábitos</S.StyledLink>
-        <Link to={`/hoje`}>
+        <S.StyledLink data-test="habit-link" to={`/habitos`}>Hábitos</S.StyledLink>
+        <Link data-test="today-link" to={`/hoje`}>
           <div>
 
             <CircularProgressbar
@@ -29,7 +29,7 @@ function Menu() {
             />
           </div>
         </Link>
-        <S.StyledLink to={`/historico`}>Histórico</S.StyledLink>
+        <S.StyledLink data-test="history-link" to={`/historico`}>Histórico</S.StyledLink>
       </S.Content>
     </S.Container>
   );

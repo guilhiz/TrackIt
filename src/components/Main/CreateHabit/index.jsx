@@ -23,9 +23,9 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
 
   const createHabit = () => {
     if (name === "" || days.length < 1) {
-      alert("preencha todos os campos antes de salvar")
-      return false
-    };
+      alert("preencha todos os campos antes de salvar");
+      return false;
+    }
 
     setLoading(true);
     const token = userData.token;
@@ -53,9 +53,10 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
   };
 
   return (
-    <S.Card switch={switchAnimation}>
+    <S.Card data-test="habit-create-container" switch={switchAnimation}>
       <S.Content>
         <S.Input
+          data-test="habit-name-input"
           disabled={loading}
           type="text"
           placeholder="nome do hábito"
@@ -65,6 +66,7 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
         <S.ContainerBtn>
           {listDays.map((d, i) => (
             <S.DayBtn
+              data-test="habit-day"
               disabled={loading}
               key={i}
               onClick={() => !loading && handleClick(i)}
@@ -75,8 +77,8 @@ function CreateHabit({ setRefresh, setSwitchCreate, name, setName, days, setDays
           ))}
         </S.ContainerBtn>
         <S.ContainerSaveBtn disabled={loading}>
-          <p onClick={() => !loading && cancel()}>Cancelar</p>
-          <S.SaveBtn disabled={loading} onClick={createHabit}>
+          <p data-test="habit-create-cancel-btn" onClick={() => !loading && cancel()}>Cancelar</p>
+          <S.SaveBtn data-test="habit-create-save-btn" disabled={loading} onClick={createHabit}>
             {loading && <PulseLoader color="#FFFFFF" loading={loading} margin={8} size={15} />}
             {!loading && "Salvar"}
           </S.SaveBtn>

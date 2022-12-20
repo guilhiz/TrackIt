@@ -8,10 +8,13 @@ export const Container = styled.div`
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 100%;
-    padding: 90px 400px 100px;
+    padding: 90px 200px 100px;
     h1 {
       text-align: center;
     }
+  }
+  @media (min-width: 1200px) {
+    padding: 90px 200px 100px;
   }
 `;
 

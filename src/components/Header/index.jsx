@@ -20,7 +20,7 @@ function Header() {
   };
 
   return (
-    <S.Container>
+    <S.Container data-test="header">
       <S.Content>
         <S.StyledLink to="/">
           <S.Logo>TrackIt</S.Logo>

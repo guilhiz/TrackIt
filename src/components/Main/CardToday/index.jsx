@@ -28,17 +28,17 @@ function CardToday({ dayData, setRefresh }) {
   };
 
   return (
-    <S.Card>
+    <S.Card data-test="today-habit-container">
       <S.Content>
         <S.WrapperText>
-          <h2>{name}</h2>
-          <p>
+          <h2 data-test="today-habit-name">{name}</h2>
+          <p data-test="today-habit-sequence">
             Sequência atual:{" "}
             <S.CurrentSequence CurrentColor={done}>
               {`${currentSequence} ${currentSequence > 1 ? "dias" : "dia"}`}
             </S.CurrentSequence>
           </p>
-          <p>
+          <p data-test="today-habit-record">
             Seu recorde:{" "}
             <S.HighestSequence HighestColor={currentSequence === highestSequence && done ? true : false}>
               {`${highestSequence} ${highestSequence > 1 ? "dias" : "dia"}`}
@@ -46,6 +46,7 @@ function CardToday({ dayData, setRefresh }) {
           </p>
         </S.WrapperText>
         <S.CheckBox
+          data-test="today-habit-check-btn"
           switchColor={done}
           onClick={() => {
             !done && checkHabit();

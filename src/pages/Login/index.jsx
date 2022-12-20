@@ -41,8 +41,6 @@ function Login() {
       });
   };
 
-
-
   return (
     <S.Container>
       <S.Content>
@@ -55,19 +53,28 @@ function Login() {
 
         <img src={logo} alt="" />
         <S.Form onSubmit={handleSubmit(onSubmit)}>
-          <S.Input type="email" disabled={loading} {...register("email", { required: true })} placeholder="email" />
           <S.Input
+            data-test="email-input"
+            type="email"
+            disabled={loading}
+            {...register("email", { required: true })}
+            placeholder="email"
+          />
+          <S.Input
+            data-test="password-input"
             type="password"
             disabled={loading}
             {...register("password", { required: true })}
             placeholder="senha"
           />
-          <S.SubmitBtn type="submit" disabled={loading}>
+          <S.SubmitBtn data-test="login-btn" type="submit" disabled={loading}>
             {loading && <PulseLoader color="#FFFFFF" loading={loading} margin={8} size={15} />}
             {!loading && "Entrar"}
           </S.SubmitBtn>
         </S.Form>
-        <S.StyledLink to={"/cadastro"}>Não tem uma conta? Cadastre-se!</S.StyledLink>
+        <S.StyledLink data-test="signup-link" to={"/cadastro"}>
+          Não tem uma conta? Cadastre-se!
+        </S.StyledLink>
       </S.Content>
     </S.Container>
   );

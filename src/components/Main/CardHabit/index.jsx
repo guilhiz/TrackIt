@@ -38,17 +38,17 @@ function CardHabit({ habit, setRefresh }) {
   };
 
   return (
-    <S.Card switch={switchAnimation}>
+    <S.Card switch={switchAnimation} data-test="habit-container">
       <S.Content>
         <S.ContainerName>
-          <p>{name}</p>
-          <div onClick={deleteHabit}>
+          <p data-test="habit-name">{name}</p>
+          <div data-test="habit-delete-btn" onClick={deleteHabit}>
             <Trash size={25} color="#666666" />
           </div>
         </S.ContainerName>
         <S.ContainerBtn>
           {listDays.map((d, i) => (
-            <S.DayBtn key={i} switch={days.includes(i) ? true : false}>
+            <S.DayBtn data-test="habit-day" key={i} switch={days.includes(i) ? true : false}>
               {d}
             </S.DayBtn>
           ))}

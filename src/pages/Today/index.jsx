@@ -44,8 +44,8 @@ function Today() {
     <S.Container>
       <Header />
       <S.Content>
-        <h1>{date}</h1>
-        <S.PercentageText switch={percentage < 1 ? false : true}>
+        <h1 data-test="today">{date}</h1>
+        <S.PercentageText data-test="today-counter" switch={percentage < 1 ? false : true}>
           {percentage < 1 && "Nenhum hábito concluído ainda"}
           {percentage >= 1 && `${percentage}% dos hábitos concluídos`}
         </S.PercentageText>

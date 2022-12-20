@@ -46,7 +46,7 @@ function Habits() {
       <S.Content>
         <div>
           <h1>Meus hábitos</h1>
-          <S.CreateBtn onClick={() => setSwitchCreate((current) => !current)}>+</S.CreateBtn>
+          <S.CreateBtn data-test="habit-create-btn" onClick={() => setSwitchCreate((current) => !current)}>+</S.CreateBtn>
         </div>
         {switchCreate && (
           <CreateHabit

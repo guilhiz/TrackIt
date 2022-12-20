@@ -103,6 +103,7 @@ function Historic() {
         <h1>Histórico</h1>
         <S.CalendarContainer>
           <Calendar
+            data-test="calendar"
             className="calendar"
             locale="pt-BR"
             calendarType="US"
