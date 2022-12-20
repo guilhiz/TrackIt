@@ -30,12 +30,9 @@ Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a hre
 |   |   
 |   ├── 📁components
 |   |   | 
-|   |   ├── 📁Footer
-|   |   ├── 📁FormSeat
 |   |   ├── 📁Header
-|   |   ├── 📁Movie
-|   |   ├── 📁Seat
-|   |   ├── 📁SessionDay
+|   |   ├── 📁Main
+|   |   ├── 📁Menu
 |   |   └── 📄App.js
 |   |
 |   ├── 📁constants
