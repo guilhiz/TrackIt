@@ -12,11 +12,11 @@ import * as S from "./styles";
 import CardToday from "../../components/Main/CardToday";
 
 function Today() {
-  const [todayData, setTodayData] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const { userData, percentage, calcPercentage } = useContext(AuthContext);
   const navigate = useNavigate();
   const token = userData.token;
+  const [todayData, setTodayData] = useState();
   const date = dayjs().locale("pt-br").format("dddd, DD/MM");
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function Today() {
       .catch((erro) => console.log(erro));
   }, [refresh]);
 
-  if (todayData.length < 1) {
+  if (!todayData) {
     return (
       <S.ContainerLoading>
         <ClipLoader color="#52B6FF" size={150} />

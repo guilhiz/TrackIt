@@ -9,7 +9,6 @@ function AuthProvider({ children }) {
   const [userData, setUserData] = useStickyState({}, "userData");
   const [percentage, setPercentage] = useState(0);
   const [theme, setTheme] = useState(false);
-  console.log(theme)
 
   const calcPercentage = () => {
     const config = {
@@ -18,6 +17,8 @@ function AuthProvider({ children }) {
     const promise = api.get("/habits/today", config);
     promise.then((res) => {
       const data = res.data;
+      if (data.length < 1) return false;
+
       const habitsDone = data.filter((t) => t.done);
       const percentageHabitsCompleted = (habitsDone.length / data.length) * 100;
       setPercentage(percentageHabitsCompleted.toFixed());
@@ -26,7 +27,9 @@ function AuthProvider({ children }) {
 
   return (
     <ThemeProvider theme={theme ? darkTheme : lightTheme}>
-      <AuthContext.Provider value={{ userData, setUserData, percentage, setPercentage, calcPercentage, setTheme, theme }}>
+      <AuthContext.Provider
+        value={{ userData, setUserData, percentage, setPercentage, calcPercentage, setTheme, theme }}
+      >
         {children}
       </AuthContext.Provider>
     </ThemeProvider>

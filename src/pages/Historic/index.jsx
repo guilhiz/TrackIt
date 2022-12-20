@@ -15,7 +15,7 @@ import Menu from "../../components/Menu";
 import * as S from "./styles";
 
 function Historic() {
-  const [historicList, setHistoricLIst] = useState([]);
+  const [historicList, setHistoricLIst] = useState();
   const { userData, theme } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -88,7 +88,7 @@ function Historic() {
     });
   };
 
-  if (historicList.length < 1) {
+  if (!historicList) {
     return (
       <S.ContainerLoading>
         <ClipLoader color="#52B6FF" size={150} />

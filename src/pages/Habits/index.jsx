@@ -11,7 +11,7 @@ import * as S from "./styles";
 
 function Habits() {
   const [switchCreate, setSwitchCreate] = useState(false);
-  const [habits, setHabits] = useState([]);
+  const [habits, setHabits] = useState();
   const [refresh, setRefresh] = useState([]);
   const [name, setName] = useState("");
   const [days, setDays] = useState([]);
@@ -30,9 +30,9 @@ function Habits() {
         calcPercentage()
       })
       .catch((erro) => console.log(erro));
-  }, [refresh, habits]);
+  }, [refresh]);
 
-  if (habits.length < 1) {
+  if (!habits) {
     return (
       <S.ContainerLoading>
         <ClipLoader color="#52B6FF" size={150} />
