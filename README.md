@@ -5,8 +5,6 @@
 
 
 
-Projeto #11 - TrackIt criado durante o bootcamp de desenvolvimento web da <a href="https://www.driven.com.br/" target="_blank">Driven :computer:</a>
-
 ## :robot: Tecnologias Utilizadas
 
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
